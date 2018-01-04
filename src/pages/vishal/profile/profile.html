@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="nice">
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+    Profile
+    </ion-title>
+    
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+    <ion-item style="text-align:center;">
+     
+          <ion-img class="img" src="assets/imgs/profile1.jpg"></ion-img>
+          <p>**User name**</p>
+    </ion-item>   
+        
+
+    <ion-list>
+      
+        <ion-item>
+         <ion-label>Push notification</ion-label>
+          <ion-toggle [(ngModel)]="pepperoni"></ion-toggle>
+        </ion-item>
+    
+      </ion-list>
+
+<button ion-button block color="danger" (click)="logout()"  style="margin-top: 20px;" >LogOut</button>
+</ion-content>

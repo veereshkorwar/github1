@@ -1,0 +1,85 @@
+<ion-header>
+
+  <ion-navbar color="nice">
+
+    <ion-title style="text-align:center">Signup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="signup">
+  <h1>MediCare</h1>
+
+  <form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+    <ion-item style="background-color: transparent;">
+      <ion-label floating>User Name</ion-label>
+      <ion-input type="text" [(ngModel)]="userData.username" formControlName="username"></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="user.get('username').hasError('required') && user.get('username').touched">
+      <font color="red">Name is required</font>
+    </div>
+
+    <ion-item style="background-color: transparent;">
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="userData.email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <div class="error" *ngIf="user.get('email').hasError('required') && user.get('email').touched">
+      <font color="red">Email is required</font>
+    </div>
+    <div class="error" *ngIf="user.get('email').hasError('email') && user.get('email').touched">
+      <font color="red"> please enter valid email</font>
+    </div>  <br><br>
+
+
+    <ion-item style="background-color: transparent;">
+      <ion-label>Gender*</ion-label>
+      <ion-select formControlName="gender" [(ngModel)]="userData.gender">
+        <ion-option value="male">Male</ion-option>
+        <ion-option value="female">Female</ion-option>
+      </ion-select>
+    </ion-item>
+    <div class="error" *ngIf="user.get('gender').hasError('required') && user.get('gender').touched">
+      <font color="red">Gender is required</font>
+    </div>
+    <ion-item style="background-color: transparent;">
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="userData.password" formControlName="password"></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="user.get('password').hasError('required') && user.get('password').touched">
+      <font color="red">Password is required</font>
+    </div>
+    <div class="error" *ngIf="user.get('password').hasError('minlength') && user.get('password').touched">
+      <font color="red"> Minimum of 6 characters</font>
+    </div>
+    <ion-item style="background-color: transparent;">
+      <ion-label floating>Confirm Password</ion-label>
+      <ion-input type="password" value="" formControlName="re_password"></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="user.get('re_password').hasError('required') && user.get('re_password').touched">
+      <font color="red">Confirm password is required</font>
+    </div>
+    <div class="error" *ngIf="user.get('re_password').hasError('equalTo') && user.get('re_password').touched">
+      <font color="red">Password Mismatch</font>
+    </div>
+    <ion-item style="background-color: transparent;">
+      <ion-label floating>Mobile No*</ion-label>
+      <ion-input type="tel" [(ngModel)]="userData.mobno" formControlName="mobile_no"></ion-input>
+    </ion-item>
+
+    <div class="error" *ngIf="user.get('mobile_no').hasError('required') && user.get('mobile_no').touched">
+      <font color="red">Mobile no is required</font>
+    </div>
+    <div class="error" *ngIf="user.get('mobile_no').hasError('minlength') && user.get('mobile_no').touched">
+      <font color="red"> Minimum of 10 characters</font>
+    </div>
+    <div class="error" *ngIf="user.get('mobile_no').hasError('maxlength') && user.get('mobile_no').touched">
+      <font color="red"> maximum of 10 characters</font>
+    </div>
+  </form>
+
+  <button ion-button block color="primary" (click)="signup1();signup()"  style="margin-top: 20px;">Signup</button>
+
+
+</ion-content>
